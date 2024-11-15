@@ -1,0 +1,27 @@
+entries:
+  - title: info
+    entries:
+      - title: some extra projects and deep dives into strange topics.
+      - title: github account
+        url: https://github.com/MatrixEditor
+      - title: credits to <a href="https://github.com/riggraz/no-style-please">riggraz</a> for creating this theme
+
+  - title: ":hardware hacking"
+    post_list:
+      limit: 5
+      category: hw
+      show_more: true
+      show_more_text: All posts...
+      show_more_url: hw-posts.html
+
+  - title: ":re"
+    post_list:
+      limit: 5
+      category: re
+      show_more: true
+      show_more_text: All posts...
+      show_more_url: re-posts.html
+
+  - title: PRO TIP
+    entries:
+      - title: go outside, explore the world before its too late

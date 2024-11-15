@@ -1,0 +1,28 @@
+# Theme from https://github.com/riggraz/no-style-please
+
+title: Yet another site with random posts. # name of the site
+author: MatrixEditor # name of site's author
+url: https://matrixeditor.github.io/ # root address of the site
+baseurl: ""
+description: > # description of the site (multiple lines allowed)
+  The posts presented here either cover topics that are too small
+  for a full project or explore ideas related to existing repositories.
+  The most relevant subjects include mobile applications, reverse
+  engineering, and hardware hacking.
+
+permalink: /:slug.html
+
+# favicon: "logo.png" # name+extension of favicon (which must be put on the root folder)
+
+# theme: no-style-please # local development
+remote_theme:  riggraz/no-style-please
+
+theme_config:
+  appearance: "auto" # can be "light", "dark" or "auto"
+  back_home_text: ".." # customize text for homepage link in post layout
+  date_format: "%Y-%m-%d" # customize how date is formatted
+  show_description: true # show blog description in home page
+
+sass:
+  style: :compressed
+
