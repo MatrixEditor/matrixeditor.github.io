@@ -19,7 +19,6 @@ toc: true
 assets:
   self_host:
     enabled: true
-    env: production # [development | production]
 
 pwa:
   enabled: false
