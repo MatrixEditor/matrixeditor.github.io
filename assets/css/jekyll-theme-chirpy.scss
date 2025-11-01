@@ -9,3 +9,8 @@
 ';
 
 /* append your custom style below */
+
+::selection {
+  background-color: rgb(100, 238, 62);
+  color: black;
+}
