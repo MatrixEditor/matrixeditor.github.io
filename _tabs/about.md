@@ -20,4 +20,4 @@ This blog serves as both a personal knowledge archive and a technical journal, w
 
 If you have any questions related to my posts, feel free to reach me at:
 
-- mrtx-e[at]proton[dot]me
+- mrtx-e[at]proton[dot]me (no, this is not a typo)
