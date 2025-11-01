@@ -1,32 +1,14 @@
 # The Site Configuration
-
-# Import the theme
 theme: jekyll-theme-chirpy
-
-# The language of the webpage › http://www.lingoes.net/en/translator/langcode.htm
-# If it has the same name as one of the files in folder `_data/locales`, the layout language will also be changed,
-# otherwise, the layout language will use the default value of 'en'.
 lang: en
-
-# Change to your timezone › https://zones.arilyn.cc
 timezone: Europe/Amsterdam
-
-# jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
-# ↓ --------------------------
-
 title: MatrixEditor
-
-tagline: Tech Blog with stories and writeups
-
-description: >- # used by seo meta and the atom feed
+tagline: Tech Blog with stories and writeups from outside the matrix
+description: >-
   A simplistic blog with technical writeups about security and programming.
-
-
 url: "https://matrixeditor.github.io"
-
 github:
   username: MatrixEditor
-
 # ↑ --------------------------
 # The end of `jekyll-seo-tag` settings
 
@@ -36,7 +18,7 @@ toc: true
 
 assets:
   self_host:
-    enabled: true # boolean, keep empty means false
+    enabled: true
     env: development # [development | production]
 
 pwa:
@@ -45,6 +27,12 @@ pwa:
 paginate: 10
 
 # baseurl: "https://matrixeditor.github.io"
+
+social:
+  name: MatrixEditor
+  email: mrtx-e@proton.me
+  links:
+    - https://github.com/MatrixEditor
 
 # ------------ The following options are not recommended to be modified ------------------
 
