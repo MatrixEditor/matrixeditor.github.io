@@ -19,6 +19,7 @@ toc: true
 assets:
   self_host:
     enabled: true
+    env: development
 
 pwa:
   enabled: false
