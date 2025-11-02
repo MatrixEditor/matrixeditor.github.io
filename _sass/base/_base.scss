@@ -110,7 +110,9 @@ main {
 
   &:hover {
     &::before {
-      opacity: 0.3;
+      opacity: 0.2;
+      box-shadow: rgba(30, 226, 75, 0.72) 0 6px 18px 0,
+    rgba(119, 255, 29, 0.24) 0 0 0 1px;
     }
   }
 }

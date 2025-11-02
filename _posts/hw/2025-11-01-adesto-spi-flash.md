@@ -1,13 +1,12 @@
 ---
 title: DIY Chip-Off Firmware Extraction with a RasPi
 author: me
-date: 2025-11-01 00:00:00
+date: 2025-11-01 10:00:00
 categories: [Hardware]
 tags: [":hw", hacking, hardware]
 render_with_liquid: false
+description: In this post I will show you how to read the contents of a simple SPI flash chip using a bare-metal connection to a Raspberry Pi (Model 3 B+).
 ---
-
-*In this post I will show you how to read the contents of a simple SPI flash chip using a bare-metal connection to a Raspberry Pi (Model 3 B+).*
 
 > This post builds on some topics already covered in detail in the [fsapi-tools - Firmware Analysis](https://matrixeditor.github.io/fsapi-tools/firmware-analysis.html) - I recommend reading that afterwards for deeper firmware analysis context.
 {: .prompt-info }

@@ -14,3 +14,14 @@
   background-color: rgb(100, 238, 62);
   color: black;
 }
+
+/* Dementor title */
+.dm-title-gradient {
+    background: -webkit-linear-gradient(120deg,
+            #5252d1 24%,
+            cyan);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+}
