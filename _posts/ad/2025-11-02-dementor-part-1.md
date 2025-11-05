@@ -5,7 +5,7 @@ date: 2025-11-02 00:00:00
 categories: ["Active Directory", "Tools", "Dementor"]
 tags: [":ad", "protocols", "tool"]
 render_with_liquid: false
-description: What is that strange tool called 'Dementor' and what does it offer?
+description: What is that strange tool 'Dementor' and what does it offer?
 image:
     path: /assets/img/posts/ad/2025-11-02-dementor-logo.jpg
 ---
