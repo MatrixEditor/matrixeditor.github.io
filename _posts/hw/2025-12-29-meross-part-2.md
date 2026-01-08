@@ -185,7 +185,8 @@ drwxrwxr-x  3  4096 product
 -rw-rw-r--  1 53605 RegionJsonData.dat
   ```
   A quick look on these firmware binaries reveals that they are most likely encrypted
-  or encoded with a custom format. Interestingly enough, the `mss426s_uuids.json`
+  or encoded with a custom format (*Blog post will be published on that*).
+  Interestingly enough, the `mss426s_uuids.json`
   contains a list of seemingly valid device UUIDs **and** MAC addresses.
   ```json
   {
