@@ -2,21 +2,31 @@
 title: "Meross IoT Part II: Mobile App"
 author: me
 date: 2025-12-29 01:00:00
-categories: [IoT]
-tags: [":mob", ":re", iot, mobile, reverse-engineering]
+categories: [IoT, Meross]
+tags: [":mob", ":re", meross, iot, mobile, reverse-engineering]
 render_with_liquid: false
 description: In this part I will quickly go through the reverse engineering process of the mobile app provided by Meross.
 image:
     path: /assets/img/posts/iot/meross-logo-p2.png
 ---
 
-The initial point for this investigation was to quickly examine the mobile app (without running it) to identify potential challenges when inspecting the protocol designed by Meross.
+This post is part of a series; you are currently in **Part II**:
 
-There are several ways on how to start investigating a mobile application: for instance, static analysis can be done with a tool such as MobSF. However, in this case I was interested in the cloud protocol and not the security of the application. Therefore, the source code is everything we need.
+- [Part I: Recon](../meross-part-1)
+- [Part II: Mobile App](../meross-part-2) <-- **you are here**
+- [Part III: Smartplug](../meross-part-3)
+- [Part IV: Firmware](../meross-part-4)
+- [Part V: AmebaZII](../meross-part-5)
+- [Part VI: Mi casa es su casa (finally)](../meross-part-6)
+- [Part VII: Findings Collection](../meross-part-6)
 
-## Android Application OSINT
+---
 
-The Android application served as the primary target due to the possibility to recover the Java source code representation. A tool like jadx can be used to calculate the representation of the source code based on the compiled smali instructions inside DEX files within the APK file.
+My starting point was the mobile app. To get some information out of it (without running it), I used same lazy old static analysis. Ready?
+
+## Android Application Guts
+
+A tool like jadx can be used to calculate the representation of the source code based on the compiled smali instructions inside DEX files within the APK file.
 
 > In some cases, *jadx* fails to recover the Java code and skips this *bad code*.
 > However, most of the times you will want to see that extra code, because it
@@ -75,7 +85,7 @@ public Observable signUp(String email, String password, String accountCountryCod
 
 Here we can already derive some important facts about the registration process:
 
-1. Registration uses the *MD5 hash* of the password, not the cleartext string. Because MD5 should not be used for security purposes to verify cryptographic identity due to known collisions, it is inherently insecure to use MD5 for sign-up purposes.
+1. Registration uses the *MD5 hash* of the password, not the cleartext string. (We all know how secure MD5 is when it comes to collisions)
 2. The `serviceTicket` parameter (an actual verification code reveiced via email or SMS) is not required to signup.
 3. The following data is collected about a user when registering using the mobile app:
    ```python
@@ -204,14 +214,13 @@ drwxrwxr-x  3  4096 product
   }
   ```
   {: file="resources/com.meross.meross.apk/assets/mss426s_uuids.json" }
-* From a security perspective, allowing cleartext traffic (HTTP) in the
-  `network_security_config.xml` does not follow best practices, but in this
-  case does not affect calling the cloud API.
 
 
 ---
 
-This time I've covered some source code analysis (OSINT) of the Android mobile application in order to unserstand the cloud API. We now know how to register
-accounts without providing associated mobile device information. Next time I will
-take a look on the device itself and an integration without the need of the cloud
-backend of Meross.
+We now have a decent understanding of the login process and how the protocol / API works under the hood.
+Next time I will
+take a look on the device itself, an integration without the need of the cloud
+backend of Meross and also a bit of hardware hacking.
+
+> Here you can move to the next part of this series [Part III: Smartplug](../meross-part-3).
