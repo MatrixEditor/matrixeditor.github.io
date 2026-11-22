@@ -33,7 +33,7 @@ With the datasheet in hand we can prepare the chip and wire it to the Raspberry 
 ## 2. Chip Preparation
 {: .mt-4 .mb-1 }
 
-> Caution: Removing components from a PCB can permanently damage either the board or the component. Understand the desoldering process before proceeding and consider practising on scrap hardware.
+> Caution: Removing components from a PCB can permanently damage either the board or the component. Understand the desoldering process before proceeding and consider practising on crap hardware.
 {: .prompt-danger }
 
 Steps:
@@ -67,9 +67,9 @@ GPIO.setup(io_MISO, GPIO.IN)
 
 ## 3. Chip Reader
 
-A professional chip reader is the usual tool for extracting flash contents. As this post demonstrates a DIY approach using the Raspberry Pi’s GPIO, I'll use a Python script.
+A professional chip reader is the usual tool for extracting flash contents. However, in a DIY approach the Raspberry Pi’s GPIO and a Python script is enough for us.
 
-I use the `RPi.GPIO` Python library for direct GPIO control. The goal is to implement the minimal SPI-like signalling needed to talk to the chip (manually toggling CLK, MOSI, MISO, and CS).
+I used the `RPi.GPIO` Python library for direct GPIO control. The goal is to implement the minimal SPI-like signalling needed to talk to the chip (manually toggling CLK, MOSI, MISO, and CS).
 
 ### 3.1 Reading Diagrams
 
@@ -137,12 +137,12 @@ def rx_byte() -> int:
     return value
 ```
 
-> Note: The code above assumes MSB-first ordering and a clock/phase convention where the device samples MOSI on the corresponding edge. Consult the datasheet for precise timing and clock phase/polarity requirements.
+> Note: The code above assumes MSB-first ordering and a clock/phase convention where the device samples MOSI on the corresponding edge.
 {: .prompt-info }
 
 ## 4. Putting it all together
 
-If wiring and code are correct, reading the device ID should produce sensible manufacturer and device codes. Example output:
+If wiring and code are correct, reading the device ID should produce the correct manufacturer and device codes. Example output:
 
 ```console
 root@raspberrypi:~ # python3 spi_read_deviceid.py
@@ -155,7 +155,7 @@ Device-ID
 EDI                 : 1 (0b1)
 ```
 
-Reading the entire flash depends on chip size; a full dump may take several minutes with a naïve bit-banged implementation. The educational script linked below trades performance for clarity.
+Reading the entire flash depends on chip size; a full dump may take several minutes with a naïve bit implementation. The script linked below is just a reference.
 
 - Script reference: [spi_read_deviceid.py](https://gist.github.com/MatrixEditor/6b85a90593fb9956e845def153e560c5)
 
@@ -167,7 +167,7 @@ root@raspberrypi:~ # sudo python3 spi_read_flash.py
 Reading flash... ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━   1% 0:22:56
 ```
 
-If the resulting dump is full of `0xFF` bytes, that usually indicates a problem: common causes are missing or incorrect clock signalling, incorrect CS handling, or incorrect wiring.
+If the resulting dump is full of `0xFF` bytes, that usually indicates missing or incorrect clock signalling, incorrect CS handling, or incorrect wiring.
 ```
 00000000: 0055 aa01 1000 0000 00a8 0a00 0000 8f41  .U.............A
 00000010: 2510 2002 0080 2302 2201 01c6 7cff 0722  %. ...#."...|.."
@@ -187,9 +187,7 @@ If the resulting dump is full of `0xFF` bytes, that usually indicates a problem:
 
 A quick analysis of the flash dump revealed the web server’s files, along with the compressed core of the firmware (as described in [fsapi-tools - Firmware Analysis](https://matrixeditor.github.io/fsapi-tools/firmware-analysis.html)). Additionally, all known Wi-Fi credentials are stored in plain text within the file.
 
-## Conclusion
+## Wrap-Up
 
-My conclusion is rather simple:
-
-> While this was a fun ride, professional equipment and the right tools might've reduced the time spend on implementing a custom chip reader. However, in the end DIY chip-off firmware extraction is not that difficult after all: a RasPi is all you need.
+While this was a fun ride, professional equipment and the right tools might've reduced the time spend on implementing a custom chip reader. However, in the end DIY chip-off firmware extraction is not that difficult after all: a RasPi is all you need.
 {: prompt-success }

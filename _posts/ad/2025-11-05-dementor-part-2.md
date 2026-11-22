@@ -17,7 +17,7 @@ mermaid: true
 In the previous post, I briefly discussed the motivation and general purpose behind *Dementor*.
 In this article, I’ll go through the main components that make up its architecture.
 
-Fair warning: there are still no test cases here (I know, I know, more text). But trust me,
+Fair warning: there are still no examples here (I know, I know, more text). But trust me,
 understanding the architecture first will make everything else a lot easier to follow once we start using it.
 
 ## Core Components
